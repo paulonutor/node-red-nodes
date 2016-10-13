@@ -201,11 +201,11 @@ module.exports = function(RED) {
                         if (node.operation === "find") {
                             msg.projection = msg.projection || {};
                             selector = ensureValidSelectorObject(msg.payload);
-                            var limit = msg.limit;
+                            var limit = msg.limit || 0;
                             if (typeof limit === "string" && !isNaN(limit)) {
                                 limit = Number(limit);
                             }
-                            var skip = msg.skip;
+                            var skip = msg.skip || 0;
                             if (typeof skip === "string" && !isNaN(skip)) {
                                 skip = Number(skip);
                             }
